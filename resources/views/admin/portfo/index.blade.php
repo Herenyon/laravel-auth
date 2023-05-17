@@ -25,7 +25,7 @@
                     <td>{{ $portfo->date_of_start }}</td>
                     <td>
                         <ul class="list-unstyled d-flex">
-                            <li><a href="" class="btn btn-small btn-secondary mx-1">Show</a></li>
+                            <li><a href="{{route('admin.portf.show', $portfo->slug)}}" class="btn btn-small btn-secondary mx-1">Show</a></li>
                             <li><a href="" class="btn btn-small btn-warning mx-1">Edit</a></li>
                             
                         </ul>

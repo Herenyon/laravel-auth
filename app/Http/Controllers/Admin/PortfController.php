@@ -47,9 +47,10 @@ class PortfController extends Controller
      * @param  \App\Models\Portf  $portf
      * @return \Illuminate\Http\Response
      */
-    public function show(Portf $portf)
+    public function show(string $slug)
     {
-        //
+        $portfo = Portf::where('slug', $slug)->first();
+        return view('admin.portfo.show', compact('portfo'));
     }
 
     /**
