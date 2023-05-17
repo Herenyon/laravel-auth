@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('nickname', 50);
             $table->text('description');
             $table->string('slug');
-            $table->date('date_of_start');
+            $table->date('date_of_start')->nullable();
             $table->timestamps();
         });
     }

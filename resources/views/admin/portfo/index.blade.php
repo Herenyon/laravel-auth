@@ -2,6 +2,12 @@
 
 @section('content')
 <div class="container-fluid mt-4">
+    <div class="d-flex justify-content-between">
+        <h2>Repos List</h2>
+        <div>
+        <a href="{{route('admin.portf.create')}}" class="btn btn-small btn-secondary mx-1">New Repo</a>
+        </div>
+    </div>
     <table class="table table-dark table-striped">
         <thead>
             <tr>

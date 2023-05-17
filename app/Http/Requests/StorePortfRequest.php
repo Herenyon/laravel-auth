@@ -13,7 +13,7 @@ class StorePortfRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class StorePortfRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'repo_title' => 'required|unique:portfs|string|max:30',
+            'author' => 'string|max:30',
+            'nickname' => 'string|max:50',
+            'description' => 'string',
+
         ];
     }
 }

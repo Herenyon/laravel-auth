@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Portf;
 use App\Http\Requests\StorePortfRequest;
 use App\Http\Requests\UpdatePortfRequest;
+use Illuminate\Support\Str;
 
 class PortfController extends Controller
 {
@@ -27,7 +28,7 @@ class PortfController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.portfo.create');
     }
 
     /**
@@ -38,7 +39,13 @@ class PortfController extends Controller
      */
     public function store(StorePortfRequest $request)
     {
-        //
+        $data = $request->validated();
+        $portf = new Portf();
+        $portf->fill($data);
+        $portf->slug = Str::slug($data['repo_title'], '-');
+        $portf->save();
+
+        return redirect()->route('admin.dashboard');
     }
 
     /**
