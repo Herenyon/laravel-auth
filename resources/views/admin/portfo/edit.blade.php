@@ -6,7 +6,7 @@
 
     <!-- /resources/views/post/create.blade.php -->
  
-    <h1>Create Post</h1>
+    <h1>Edit Repo {{ $portfo->repo_title }}</h1>
     
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -19,8 +19,9 @@
     @endif
  
 <!-- Create Post Form -->
-   <form class="row g-3" action="{{route('admin.portf.store')}}" method="POST">
+   <form class="row g-3" action="{{route('admin.portf.update', $portfo)}}" method="POST">
     @csrf
+    @method('PUT')
         <div class="col-md-6">
             <label for="repo-name" class="form-label">Repo Name</label>
             <input type="text" class="form-control" id="repo-name" name="repo_title">
@@ -39,7 +40,7 @@
         </div>
         
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
         </div>
     </form>
 </div>

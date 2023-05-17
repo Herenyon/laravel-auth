@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Rule as ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdatePortfRequest extends FormRequest
 {
@@ -13,7 +15,7 @@ class UpdatePortfRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +26,15 @@ class UpdatePortfRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'repo_title' => [
+                'required',
+                Rule::unique('portfs')->ignore($this->portf),
+                'string',
+                'max:30',
+            ],
+            'author' => 'string|max:30',
+            'nickname' => 'string|max:50',
+            'description' => 'string',
         ];
     }
 }
