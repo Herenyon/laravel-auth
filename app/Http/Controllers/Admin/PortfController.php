@@ -97,6 +97,7 @@ class PortfController extends Controller
      */
     public function destroy(Portf $portf)
     {
-        //
+        $portf->delete();
+        return to_route('admin.dashboard');
     }
 }

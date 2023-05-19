@@ -33,6 +33,14 @@
                         <ul class="list-unstyled d-flex">
                             <li><a href="{{route('admin.portf.show', $portfo->slug)}}" class="btn btn-small btn-secondary mx-1">Show</a></li>
                             <li><a href="{{route('admin.portf.edit', $portfo->id)}}" class="btn btn-small btn-warning mx-1">Edit</a></li>
+                            <li>
+                                <form action="{{ route('admin.portf.destroy', $portfo) }}" method="POST" id="form">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="Cancella" class="btn btn-danger bottone-elimina" id="{{ $portfo->id }}">
+                                </form>
+                            </li>
+                            
                             
                         </ul>
                     </td>
