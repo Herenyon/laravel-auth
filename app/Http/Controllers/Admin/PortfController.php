@@ -66,10 +66,10 @@ class PortfController extends Controller
      * @param  \App\Models\Portf  $portf
      * @return \Illuminate\Http\Response
      */
-    public function edit(Portf $portfo)
+    public function edit(Portf $portf)
     {
 
-        return view('admin.portfo.edit', compact('portfo'));
+        return view('admin.portf.edit', compact('portf'));
     }
 
     /**
@@ -82,11 +82,11 @@ class PortfController extends Controller
     public function update(UpdatePortfRequest $request, Portf $portf)
     {
         $data = $request->validated();
-        $portf->update($data);
         $portf->slug = Str::slug($data['repo_title'], '-');
-        $portf->save();
+        $portf->update($data);
 
-        return redirect()->route('admin.dashboard');
+
+        return redirect()->route('admin.dashboard', $portf);
     }
 
     /**

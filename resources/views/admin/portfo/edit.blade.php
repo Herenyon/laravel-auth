@@ -19,7 +19,7 @@
     @endif
  
 <!-- Create Post Form -->
-   <form class="row g-3" action="{{route('admin.portf.update', $portfo)}}" method="POST">
+   <form class="row g-3" action="{{route('admin.portf.update', $portf)}}" method="POST">
     @csrf
     @method('PUT')
         <div class="col-md-6">
