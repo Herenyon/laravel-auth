@@ -6,7 +6,7 @@
 
     <!-- /resources/views/post/create.blade.php -->
  
-    <h1>Edit Repo {{ $portfo->repo_title }}</h1>
+    <h1>Edit Repo {{ $portf->repo_title }}</h1>
     
     @if ($errors->any())
         <div class="alert alert-danger">

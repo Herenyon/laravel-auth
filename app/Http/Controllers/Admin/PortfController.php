@@ -69,7 +69,7 @@ class PortfController extends Controller
     public function edit(Portf $portf)
     {
 
-        return view('admin.portf.edit', compact('portf'));
+        return view('admin.portfo.edit', compact('portf'));
     }
 
     /**
