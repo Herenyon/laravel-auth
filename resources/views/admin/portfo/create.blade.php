@@ -19,7 +19,7 @@
     @endif
  
 <!-- Create Post Form -->
-   <form class="row g-3" action="{{route('admin.portf.store')}}" method="POST">
+   <form class="row g-3" action="{{route('admin.portf.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
         <div class="col-md-6">
             <label for="repo-name" class="form-label">Repo Name</label>
@@ -36,6 +36,10 @@
         <div class="col-12">
             <label for="description" class="form-label">Description</label>
             <textarea type="text" class="form-control" id="description" placeholder="" name="description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input class="form-control" type="file" id="image" name="image">
         </div>
         
         <div class="col-12">

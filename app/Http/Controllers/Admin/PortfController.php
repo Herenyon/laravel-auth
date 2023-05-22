@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Portf;
 use App\Http\Requests\StorePortfRequest;
 use App\Http\Requests\UpdatePortfRequest;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PortfController extends Controller
@@ -42,6 +43,11 @@ class PortfController extends Controller
         $data = $request->validated();
         $portf = new Portf();
         $portf->fill($data);
+        if (isset($data['image'])) {
+            $portf->image = Storage::put('uploads', $data['image']);
+        }
+
+
         $portf->slug = Str::slug($data['repo_title'], '-');
         $portf->save();
 
