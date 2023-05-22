@@ -28,7 +28,8 @@ class StorePortfRequest extends FormRequest
             'author' => 'string|max:30',
             'nickname' => 'string|max:50',
             'description' => 'string',
-            'image' => 'nullable|image|max:2048'
+            'image' => 'nullable|image|max:2048',
+            'set_image' => 'boolean'
 
         ];
     }

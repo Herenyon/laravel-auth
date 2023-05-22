@@ -38,7 +38,7 @@
             <label for="description" class="form-label">Description</label>
             <textarea type="text" class="form-control" id="description" placeholder="" name="description"></textarea>
         </div>
-        <div class="mb-3" id="image-input-container">
+        <div class="mb-3 @if(!$portf->image) d-none @endif" id="image-input-container">
             <div class="preview">
                 <img id="file-image-preview" @if($portf->image) src="{{asset('storage/' . $portf->image)}} @endif">
             </div>
@@ -46,7 +46,7 @@
             <input class="form-control" type="file" id="image" name="image">
         </div>
         <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="set_image" @if ($portf->image) checked @endif>
+            <input class="form-check-input" type="checkbox" role="switch" id="set_image" name="set_image" @if ($portf->image) checked @endif value="1">
             <label class="form-check-label" for="set_image">image set/unset</label>
         </div>
         

@@ -89,9 +89,8 @@ class PortfController extends Controller
     {
         $data = $request->validated();
         $portf->slug = Str::slug($data['repo_title'], '-');
-        $portf->update($data);
-        if (empty($data['set_image'])) {
 
+        if (empty($data['set_image'])) {
 
             if ($portf->image) {
                 Storage::delete($portf->image);
@@ -107,7 +106,7 @@ class PortfController extends Controller
                 $portf->image = Storage::put('uploads', $data['image']);
             }
         }
-
+        $portf->update($data);
         return redirect()->route('admin.dashboard', $portf);
     }
 
@@ -119,6 +118,9 @@ class PortfController extends Controller
      */
     public function destroy(Portf $portf)
     {
+        if ($portf->image) {
+            Storage::delete($portf->image);
+        }
         $portf->delete();
         return to_route('admin.dashboard');
     }
