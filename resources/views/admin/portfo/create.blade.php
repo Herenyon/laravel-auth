@@ -38,6 +38,9 @@
             <textarea type="text" class="form-control" id="description" placeholder="" name="description"></textarea>
         </div>
         <div class="mb-3">
+            <div class="preview">
+                <img id="file-image-preview">
+            </div>
             <label for="image" class="form-label">Image</label>
             <input class="form-control" type="file" id="image" name="image">
         </div>

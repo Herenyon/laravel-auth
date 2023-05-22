@@ -35,6 +35,8 @@ class UpdatePortfRequest extends FormRequest
             'author' => 'string|max:30',
             'nickname' => 'string|max:50',
             'description' => 'string',
+            'image' => 'nullable|image|max:2048',
+
         ];
     }
 }

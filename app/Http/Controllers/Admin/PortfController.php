@@ -90,7 +90,23 @@ class PortfController extends Controller
         $data = $request->validated();
         $portf->slug = Str::slug($data['repo_title'], '-');
         $portf->update($data);
+        if (empty($data['set_image'])) {
 
+
+            if ($portf->image) {
+                Storage::delete($portf->image);
+                $portf->image = null;
+            }
+        } else {
+            if (isset($data['image'])) {
+
+                if ($portf->image) {
+                    Storage::delete($portf->image);
+                }
+
+                $portf->image = Storage::put('uploads', $data['image']);
+            }
+        }
 
         return redirect()->route('admin.dashboard', $portf);
     }
